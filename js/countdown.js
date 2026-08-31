@@ -19,12 +19,19 @@
         return Math.max(1, y);
     }
 
-    // 下一个纪念日（严格晚于当前时间，避免负倒计时）
+    // 下一个纪念日：以「天」为单位判断——从纪念日当天起即视为已度过该周年，
+    // 倒计时目标直接切到下一年（避免当天还显示几小时的误差）
     function nextAnniversary(now) {
         const date = new Date(now);
-        let y = date.getFullYear() - start.getFullYear();
-        if (new Date(start).setFullYear(start.getFullYear() + y) <= now) y++;
-        return new Date(start).setFullYear(start.getFullYear() + y);
+        const y = date.getFullYear() - start.getFullYear();
+        const ann = new Date(start);
+        ann.setFullYear(start.getFullYear() + y);
+
+        const today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        const annDay = new Date(ann.getFullYear(), ann.getMonth(), ann.getDate());
+        const offset = annDay <= today ? 1 : 0;
+
+        return new Date(start).setFullYear(start.getFullYear() + y + offset);
     }
 
     function tick() {
