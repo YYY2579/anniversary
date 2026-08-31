@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恋爱四周年 · 我们的纪念日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.cn">
+    <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+    <link href="https://fonts.googleapis.cn/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRTg4RDY3IiBkPSJNMTIgNC41OTVhNS45IDUuOSAwIDAgMC0zLjk5Ni0xLjU1OGE1Ljk0IDUuOTQgMCAwIDAtNC4yMTMgMS43NThjLTIuMzUzIDIuMzYzLTIuMzUyIDYuMDU5LjAwMiA4LjQxMmw3LjMzMiA3LjMzMmMuMTcuMjk5LjQ5OC40OTIuODc1LjQ5MmEuOTkuOTkgMCAwIDAgLjc5Mi0uNDA5bDcuNDE1LTcuNDE1YzIuMzU0LTIuMzU0IDIuMzU0LTYuMDQ5LS4wMDItOC40MTZhNS45NCA1Ljk0IDAgMCAwLTQuMjA5LTEuNzU0QTUuOSA1LjkgMCAwIDAgMTIgNC41OTV6Ii8+PC9zdmc+">
+    <meta name="theme-color" content="#fdfbf7">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <!-- 背景音乐开关 -->
+    <button id="music-toggle" class="music-toggle" aria-label="背景音乐开关">♪ 播放音乐</button>
+    <div id="music-tip" class="music-tip"></div>
+
+    <!-- ===== 1. 开场封面 ===== -->
+    <section class="hero" id="hero-cover">
+        <canvas id="particles" class="hero-particles"></canvas>
+        <div class="hero-inner">
+            <p class="hero-tag">纪念日快乐</p>
+            <h1 id="hero-heading" class="hero-heading handwriting">恋爱四周年</h1>
+            <p id="hero-names" class="hero-names"><!-- 双方昵称由 script.js 填充 --></p>
+            <p class="hero-subtitle">斯人若彩虹，遇上方知有</p>
+            <span id="start-date-display" class="date-tag">Computing...</span>
+        </div>
+        <a href="#counter" class="scroll-hint" aria-label="向下滚动">
+            <span class="scroll-deco"></span>
+        </a>
+    </section>
+
+    <div class="container">
+        <!-- ===== 2. 相爱天数 ===== -->
+        <section class="counter-section fade-in" id="counter">
+            <p class="counter-label">我们已经相爱了</p>
+            <div class="days-wrapper">
+                <span class="days-number" id="days-counter">0</span>
+                <span class="days-unit">天</span>
+            </div>
+            <p class="counter-footer">每一秒都值得被记录</p>
+        </section>
+
+        <!-- ===== 3. 时光相册 / 时间线 ===== -->
+        <section class="timeline-section">
+            <h2 class="section-title handwriting fade-in">时光相册</h2>
+            <div class="timeline" id="timeline"></div>
+
+            <div class="more-photos-section fade-in">
+                <p>未完待续...</p>
+                <a href="gallery.html" class="more-btn">查看更多回忆 <span class="arrow">→</span></a>
+            </div>
+        </section>
+
+        <!-- ===== 4. 回忆里程碑 ===== -->
+        <section class="milestones-section">
+            <h2 class="section-title handwriting fade-in">我们的里程碑</h2>
+            <div class="milestones" id="milestones"></div>
+        </section>
+
+        <!-- ===== 5. 纪念日倒计时 ===== -->
+        <section class="countdown-section">
+            <h2 class="section-title handwriting fade-in">一起走到下一年</h2>
+            <div id="countdown-display" class="countdown-display"></div>
+        </section>
+
+        <!-- ===== 6. 留言 / 心愿 ===== -->
+        <section class="wishes-section">
+            <h2 class="section-title handwriting fade-in">给你的心愿</h2>
+            <div id="wishes" class="wishes"></div>
+        </section>
+
+        <!-- ===== 7. 结尾祝福 ===== -->
+        <section class="ending-section">
+            <div class="ending-heart">♥</div>
+            <p id="ending-text" class="ending-text">谨以此页，纪念我们一起度过的四季。</p>
+            <a href="#hero-cover" class="back-top">回到封面 ↑</a>
+        </section>
+    </div>
+
+    <footer class="fade-in">
+        <p>
+            Love &amp; Memory © <span id="current-year"></span>
+        </p>
+    </footer>
+
+    <!-- config.js 先加载：script/particles/countdown/audio 均依赖其中的全局数据 -->
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/audio.js"></script>
+</body>
+</html>
